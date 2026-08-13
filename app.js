@@ -1,5 +1,5 @@
-const dns = require('dns')
-dns.setServers(['8.8.8.8', '8.8.4.4'])
+// const dns = require('dns')
+// dns.setServers(['8.8.8.8', '8.8.4.4'])
 
 require('dotenv').config()
 require('express-async-errors')
@@ -46,8 +46,7 @@ const port = process.env.PORT || 3000
 const start= async ()=> {
     try {
         await connectDB(process.env.MONGO_URI)
-        app.listen(port,()=>
-        console.log(`server is listing on ${port}`))
+       app.listen(port, '0.0.0.0', () => console.log(`server is listing on ${port}`))
     } catch (error) {
         console.log(error)
     }
